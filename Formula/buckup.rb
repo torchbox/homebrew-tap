@@ -17,6 +17,6 @@ class Buckup < Formula
   end
 
   test do
-    assert_predicate "#{bin}/buckup", :exist?
+    assert_predicate bin/"buckup", :exist?
   end
 end
