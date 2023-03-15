@@ -15,4 +15,8 @@ class Buckup < Formula
     system libexec/"bin/pip", "uninstall", "-y", "buckup"
     venv.pip_install_and_link buildpath
   end
+
+  test do
+    assert_predicate "#{bin}/buckup", :exist?
+  end
 end
