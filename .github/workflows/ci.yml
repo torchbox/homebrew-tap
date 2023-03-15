@@ -1,0 +1,24 @@
+name: CI
+
+on: [pull_request, push]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    strategy:
+      matrix:
+        formula:
+          - buckup
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install custom tap
+      run: |
+        mkdir -p /usr/local/Homebrew/Library/Taps/$GITHUB_REPOSITORY
+        cp -r * /usr/local/Homebrew/Library/Taps/$GITHUB_REPOSITORY/
+    - name: Install ${{ matrix.formula }}
+      run: brew install $GITHUB_REPOSITORY/${{ matrix.formula }}
+    - name: Test ${{ matrix.formula }}
+      run: brew test $GITHUB_REPOSITORY/${{ matrix.formula }}
