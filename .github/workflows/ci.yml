@@ -13,7 +13,7 @@ jobs:
           - buckup
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Install custom tap
       run: |
         mkdir -p /usr/local/Homebrew/Library/Taps/$GITHUB_REPOSITORY
