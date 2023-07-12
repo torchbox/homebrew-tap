@@ -3,8 +3,8 @@ class Buckup < Formula
 
   desc "Creating S3 buckets for your site with ease."
   homepage "https://github.com/torchbox/buckup"
-  url "https://github.com/torchbox/buckup/archive/v0.1a6.tar.gz"
-  sha256 "e81a1fe16ba0e24929944e0b0a02c9596044ce25a65cb0140ab346e41afcffe4"
+  url "https://github.com/torchbox/buckup/archive/v0.1a7.tar.gz"
+  sha256 "b914dfeafd9472f01d18b8b85f26756f8fe981bfa8dc0cbf9812dcd82848780f"
   head "https://github.com/torchbox/buckup.git"
 
   depends_on "python@3"
