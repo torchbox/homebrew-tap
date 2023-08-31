@@ -16,6 +16,7 @@ jobs:
       matrix:
         formula:
           - buckup
+          - heroku-audit
 
     steps:
     - uses: actions/checkout@v3
