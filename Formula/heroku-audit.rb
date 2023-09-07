@@ -18,6 +18,7 @@ class HerokuAudit < Formula
 
   test do
     assert_predicate bin/"heroku-audit", :exist?
+    system bin/"heroku-audit", "--list"
     assert_match "Heroku Audit v#{version}", shell_output("#{bin}/heroku-audit --version")
   end
 end
