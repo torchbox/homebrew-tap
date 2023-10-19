@@ -19,7 +19,7 @@ jobs:
           - heroku-audit
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Install custom tap
       run: |
         mkdir -p /usr/local/Homebrew/Library/Taps/$GITHUB_REPOSITORY
