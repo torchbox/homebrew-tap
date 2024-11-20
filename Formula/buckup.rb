@@ -10,10 +10,8 @@ class Buckup < Formula
   depends_on "python@3"
 
   def install
-    python = Formula["python@3"].opt_bin/"python3"
-    python_version = Language::Python.major_minor_version(python)
     # without_pip is deprecated in python 3.12+, so we only pass it for older versions
-    if Version.create(python_version) >= Version.create("3.12")
+    if Language::Python.major_minor_version("python3") >= "3.12"
       venv = virtualenv_create(libexec, "python3")
     else
       venv = virtualenv_create(libexec, "python3", without_pip: false)
