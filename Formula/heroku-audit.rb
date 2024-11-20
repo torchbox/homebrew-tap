@@ -3,8 +3,8 @@ class HerokuAudit < Formula
 
   desc "Command-line tool for reporting on specific attributes of a Heroku environment."
   homepage "https://github.com/torchbox/heroku-audit"
-  url "https://github.com/torchbox/heroku-audit/archive/0.0.2.tar.gz"
-  sha256 "0c539746c4b5dfb1ff8504e1a96394c3456666c866e0f0c1f7f54ef6f1242279"
+  url "https://github.com/torchbox/heroku-audit/archive/refs/tags/0.0.3.tar.gz"
+  sha256 "69514c421d3d626db8a9f6ddb7441ba49cb3c970855e5a865488ed1a5adacc49"
   head "https://github.com/torchbox/heroku-audit.git"
 
   depends_on "python@3"
