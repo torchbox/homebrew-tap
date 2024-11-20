@@ -17,7 +17,8 @@ class Buckup < Formula
     else
       venv = virtualenv_create(libexec, "python3", without_pip: false)
     end
-    system "#{libexec}/bin/pip", "install", "--verbose", buildpath, *std_pip_args
+    system libexec/"bin/pip", "install", buildpath
+    system libexec/"bin/pip", "uninstall", "-y", "buckup"
     venv.pip_install_and_link buildpath
   end
 
