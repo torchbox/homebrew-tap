@@ -24,7 +24,6 @@ jobs:
       uses: Homebrew/actions/setup-homebrew@master
     - name: Add our custom tap
       run: |
-        mkdir -p "$(brew --repository)/Library/Taps/$GITHUB_REPOSITORY"
         ln -s "$(pwd)" "$(brew --repository)/Library/Taps/$GITHUB_REPOSITORY"
     - name: Install ${{ matrix.formula }}
       run: brew install $GITHUB_REPOSITORY/${{ matrix.formula }}
