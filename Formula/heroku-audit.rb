@@ -10,8 +10,8 @@ class HerokuAudit < Formula
   depends_on "python@3"
 
   def install
+    # without_pip is deprecated in python 3.12+, so we only pass it for older versions
     if Language::Python.major_minor_version("python3") >= "3.12"
-      # `without_pip` is replaced with `ensurepip` in python 3.12+
       venv = virtualenv_create(libexec, "python3")
       system libexec/"bin/python", "-m", "ensurepip"
     else
@@ -24,8 +24,7 @@ class HerokuAudit < Formula
 
   test do
     assert_predicate bin/"heroku-audit", :exist?
-    # TODO: Re-add this once https://github.com/torchbox/heroku-audit/issues/5 is fixed
-    # system bin/"heroku-audit", "--list"
-    # assert_match "Heroku Audit v#{version}", shell_output("#{bin}/heroku-audit --version")
+    system bin/"heroku-audit", "--list"
+    assert_match "Heroku Audit v#{version}", shell_output("#{bin}/heroku-audit --version")
   end
 end
