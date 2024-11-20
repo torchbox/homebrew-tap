@@ -10,9 +10,15 @@ class HerokuAudit < Formula
   depends_on "python@3"
 
   def install
-    venv = virtualenv_create(libexec, "python3", without_pip: false)
-    system libexec/"bin/pip", "install", buildpath
-    system libexec/"bin/pip", "uninstall", "-y", "heroku-audit"
+    # without_pip is deprecated in python 3.12+, so we only pass it for older versions
+    if Language::Python.major_minor_version("python3") >= "3.12"
+      venv = virtualenv_create(libexec, "python3")
+      system libexec/"bin/python", "-m", "ensurepip"
+    else
+      venv = virtualenv_create(libexec, "python3", without_pip: false)
+    end
+    system libexec/"bin/python", "-m", "pip", "install", buildpath
+    system libexec/"bin/python", "-m", "pip", "uninstall", "-y", "heroku-audit"
     venv.pip_install_and_link buildpath
   end
 
