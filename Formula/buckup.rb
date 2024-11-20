@@ -17,7 +17,11 @@ class Buckup < Formula
     else
       venv = virtualenv_create(libexec, "python3", without_pip: false)
     end
+    # Update pip
     system libexec/"bin/python", "-m", "pip", "install", "--verbose", "--upgrade", "pip"
+    # Install in editable mode with dependencies
+    system libexec/"bin/python", "-m", "pip", "install", "--verbose", "-e", buildpath
+    # Create the final installation
     venv.pip_install_and_link buildpath
   end
 
