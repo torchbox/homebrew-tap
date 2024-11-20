@@ -13,6 +13,7 @@ class Buckup < Formula
     # without_pip is deprecated in python 3.12+, so we only pass it for older versions
     if Language::Python.major_minor_version("python3") >= "3.12"
       venv = virtualenv_create(libexec, "python3")
+      system libexec/"bin/python", "-m", "ensurepip"  # Ensure pip is installed
     else
       venv = virtualenv_create(libexec, "python3", without_pip: false)
     end
