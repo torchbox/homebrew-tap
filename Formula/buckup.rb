@@ -17,7 +17,7 @@ class Buckup < Formula
     else
       venv = virtualenv_create(libexec, "python3", without_pip: false)
     end
-    system libexec/"bin/pip", "install", "-v", buildpath
+    system "#{libexec}/bin/pip", "install", "--verbose", "--log", "pip.log", buildpath, :err => [:child, :out]
     venv.pip_install_and_link buildpath
   end
 
