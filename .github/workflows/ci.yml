@@ -20,10 +20,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Install custom tap
-      run: |
-        mkdir -p /usr/local/Homebrew/Library/Taps/$GITHUB_REPOSITORY
-        cp -r * /usr/local/Homebrew/Library/Taps/$GITHUB_REPOSITORY/
+    - name: Set up Homebrew
+      uses: Homebrew/actions/setup-homebrew@master
     - name: Install ${{ matrix.formula }}
       run: brew install $GITHUB_REPOSITORY/${{ matrix.formula }}
     - name: Test ${{ matrix.formula }}
