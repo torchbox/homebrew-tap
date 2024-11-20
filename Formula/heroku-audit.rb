@@ -17,6 +17,7 @@ class HerokuAudit < Formula
     else
       venv = virtualenv_create(libexec, "python3", without_pip: false)
     end
+    system libexec/"bin/pip", "install", "-v", buildpath
     venv.pip_install_and_link buildpath
   end
 
