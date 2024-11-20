@@ -14,10 +14,8 @@ class HerokuAudit < Formula
     if Language::Python.major_minor_version("python3") >= "3.12"
       venv = virtualenv_create(libexec, "python3")
       system libexec/"bin/python", "-m", "ensurepip"
-      system libexec/"bin/python", "-m", "pip", "install", "--verbose", buildpath
     else
       venv = virtualenv_create(libexec, "python3", without_pip: false)
-      system libexec/"bin/pip", "install", "--verbose", buildpath
     end
     venv.pip_install_and_link buildpath
   end
