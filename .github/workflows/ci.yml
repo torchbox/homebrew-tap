@@ -19,7 +19,7 @@ jobs:
           - heroku-audit
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Set up Homebrew
       uses: Homebrew/actions/setup-homebrew@master
     - name: Add our custom tap
