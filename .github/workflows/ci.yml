@@ -21,7 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v7
     - name: Set up Homebrew
-      uses: Homebrew/actions/setup-homebrew@master
+      uses: Homebrew/actions/setup-homebrew@main
     - name: Add our custom tap
       run: |
         ln -s "$(pwd)" "$(brew --repository)/Library/Taps/$GITHUB_REPOSITORY"
